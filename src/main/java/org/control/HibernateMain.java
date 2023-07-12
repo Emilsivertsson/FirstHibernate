@@ -6,6 +6,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class HibernateMain {
     public static void main(String[] args) {
@@ -42,10 +45,35 @@ public class HibernateMain {
             //session.delete(player);
 
             //add players with auto increment id
-            Player player4 = new Player("Kalle", "Team4", 34);
-            Player player5 = new Player("pelle", "Team5", 78);
-            session.save(player4);
-            session.save(player5);
+            //Player player4 = new Player("Kalle", "Team4", 34);
+            //Player player5 = new Player("pelle", "Team5", 78);
+            //session.save(player4);
+            //session.save(player5);
+
+            //Get all players
+            //Query query = session.createQuery("from Player");
+            //List<Player> players = query.list();
+            //for (Player player : players) {
+            //    System.out.println(player.toString());
+            //}
+
+            //Get all players with age > 30
+            //Query query = session.createQuery("from Player where playerAge > 30");
+            //List<Player> players = query.list();
+            //for (Player player : players) {
+            //    System.out.println(player.toString());
+            //}
+
+            //Get all players with parameters
+            //Query query = session.createQuery("from Player where playerAge > :age and playerName = :name");
+            //query.setParameter("age", 30);
+            //query.setParameter("name", "Kalle");
+            //List<Player> players = query.list();
+            //for (Player player : players) {
+            //    System.out.println(player.toString());
+            //}
+
+
             //Commit transaction and close session
             tx.commit();
             session.close();
