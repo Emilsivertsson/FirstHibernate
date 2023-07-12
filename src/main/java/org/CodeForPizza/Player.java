@@ -1,25 +1,33 @@
 package org.CodeForPizza;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 
-@Table
+@Table(name="player_table")
 public class Player {
     @Id
+    //will auto increment id in database
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int playerID;
+
+    @Column(nullable = false, name="name")
     private String playerName;
     private String teamName;
-    private int playerage;
+    private int playerAge;
 
-    public Player(int playerID, String playerName, String teamName, int playerage) {
+    public Player(String playerName, String teamName, int playerAge) {
+        this.playerName = playerName;
+        this.teamName = teamName;
+        this.playerAge = playerAge;
+    }
+
+    public Player(int playerID, String playerName, String teamName, int playerAge) {
         this.playerID = playerID;
         this.playerName = playerName;
         this.teamName = teamName;
-        this.playerage = playerage;
+        this.playerAge = playerAge;
     }
 
     public Player() {
@@ -51,12 +59,12 @@ public class Player {
         this.teamName = teamName;
     }
 
-    public int getPlayerage() {
-        return playerage;
+    public int getPlayerAge() {
+        return playerAge;
     }
 
-    public void setPlayerage(int playerage) {
-        this.playerage = playerage;
+    public void setPlayerAge(int playerAge) {
+        this.playerAge = playerAge;
     }
 
     @Override
@@ -65,7 +73,7 @@ public class Player {
                 "playerID=" + playerID +
                 ", playerName='" + playerName + '\'' +
                 ", teamName='" + teamName + '\'' +
-                ", playerage=" + playerage +
+                ", playerage=" + playerAge +
                 '}';
     }
 }

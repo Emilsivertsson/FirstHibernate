@@ -19,7 +19,7 @@
 
         <!-- drop and create table again, only for development -->
         <!-- if you want to update table schema not delete the current, set this to: update -->
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create</property>
 
         <!-- Enable logging -->
         <property name="hibernate.show_sql">true</property>
